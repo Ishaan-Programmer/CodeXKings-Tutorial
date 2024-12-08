@@ -36,3 +36,22 @@ print(random.choice(list1))
 import flask 
 
 # Problem 5
+import os
+
+def print_directory_contents(directory):
+    # Ensure the directory exists
+    if not os.path.exists(directory):
+        print(f"Error: Directory '{directory}' does not exist.")
+        return
+    
+    # Print the header
+    print(f"Contents of directory '{directory}':")
+    
+    # Iterate through the directory contents
+    with os.scandir(directory) as entries:
+        for entry in entries:
+            print(entry.name)
+
+# Example usage:
+directory_path = '/'  # Replace with your directory path
+print_directory_contents(directory_path)
